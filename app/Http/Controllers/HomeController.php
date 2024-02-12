@@ -2,33 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-
 use Illuminate\Support\Facades\Auth;
-
 
 class HomeController extends Controller
 {
-    //This is the one that is been called in the file of web.php as a get:
+    // This method is called in the web.php file as a GET route:
     public function index()
     {
-        if(Auth::id()){
-            $usertype=Auth()->user()->usertype; 
+        if (Auth::check()) {
+            $userType = Auth::user()->usertype; 
 
-            if($usertype=='user'){
+            if ($userType === 'user') {
                 return view('dashboard');
-            }
-            //I think this is the one that is going to call admin home 
-            else if($usertype=='admin'){
+            } elseif ($userType === 'admin') {
                 return view('admin.adminhome');
-            }
-            else{
+            } else {
                 return redirect()->back();
             }
+        } else {
+            return redirect()->route('login');
         }
-            public function post()
-            {
-                return view("post");
-            }
     }
+
+    // This method is not correctly placed inside the HomeController class:
+    //I was just using this to call post.blade.php file in the view folder
+   /* public function post()
+    {
+        return view("post");
+    } */
+    
+
 }
+ 

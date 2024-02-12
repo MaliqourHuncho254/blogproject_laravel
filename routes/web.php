@@ -23,7 +23,8 @@ Route::get('/', function () {
 Route::get('/home',[HomeController::class, 'index'])->middleware('auth')->name('home');
 
 //Creating of Post function 
-route::get('post', [HomeController::class,'Post']);
+//I was using this for the admin side to call post.blade.php file which was inside the view folder
+/*route::get('post', [HomeController::class,'post'])->middleware(['auth', 'admin']);*/
 
 
 //The below is the one that once i comment and run dashboard in my laravel application it show the 404 error
