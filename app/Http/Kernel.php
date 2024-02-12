@@ -64,5 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        //I think this is the one that is going to be used to call the admin
+        'admin' => \App\Http\Middleware\Admin::class, // Fixed the assignment operator
     ];
 }
