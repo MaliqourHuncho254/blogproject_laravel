@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 // Defining the route to direct us to the home page
-Route::get('/home',[HomeController::class, 'index'])->name('home');
+Route::get('/home',[HomeController::class, 'index'])->middleware('auth')->name('home');
 //The below is the one that once i comment and run dashboard in my laravel application it show the 404 error
 
 /* Route::get('/dashboard', function () {
