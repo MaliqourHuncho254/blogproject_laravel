@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
-user App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//creating of the second route get to take us to home
-route::get('/home',[HomeController::class, 'index']);
+// Defining the route to direct us to the home page
+Route::get('/home',[HomeController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
