@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            //This is what we have been able to change
-            $table->string('name');
+            //This is what we have been able to change in this beginning of the project
+            //Am still wondering why it is still showing nothing to migrate
+            $table->string('usertype')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

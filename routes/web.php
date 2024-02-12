@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//creating of the second route get to take us to home
+route::get('/home',[HomeController::class, 'index']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
