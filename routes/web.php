@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//It is calling the homepage.blade.php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'homepage']);
 
 // Defining the route to direct us to the home page
 Route::get('/home',[HomeController::class, 'index'])->middleware('auth')->name('home');
