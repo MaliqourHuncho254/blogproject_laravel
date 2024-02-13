@@ -14,19 +14,18 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//It is calling the homepage.blade.php
 
+// Calling the homepage.blade.php
 Route::get('/', [HomeController::class, 'homepage']);
 
 // Defining the route to direct us to the home page
 Route::get('/home',[HomeController::class, 'index'])->middleware('auth')->name('home');
 
-//Creating of Post function 
-//I was using this for the admin side to call post.blade.php file which was inside the view folder
-/*route::get('post', [HomeController::class,'post'])->middleware(['auth', 'admin']);*/
+// Creating the Post function 
+// This was used for the admin side to call the post.blade.php file inside the view folder
+// route::get('post', [HomeController::class,'post'])->middleware(['auth', 'admin']);
 
-
-//The below is the one that once i comment and run dashboard in my laravel application it show the 404 error
+// The below route, when commented and run dashboard in my Laravel application, shows the 404 error
 
 /* Route::get('/dashboard', function () {
     return view('dashboard');

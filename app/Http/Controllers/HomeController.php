@@ -13,7 +13,7 @@ class HomeController extends Controller
             $userType = Auth::user()->usertype; 
 
             if ($userType === 'user') {
-                return view('dashboard');
+                return view('home.homepage');
             } elseif ($userType === 'admin') {
                 return view('admin.adminhome');
             } else {
@@ -25,8 +25,8 @@ class HomeController extends Controller
     }
 
     // This method is not correctly placed inside the HomeController class:
-    //I was just using this to call post.blade.php file in the view folder
-   /* public function post()
+    // I was just using this to call post.blade.php file in the view folder
+    /* public function post()
     {
         return view("post");
     } */
@@ -35,6 +35,4 @@ class HomeController extends Controller
     {
         return view('home.homepage');
     }
-
 }
- 
