@@ -131,11 +131,25 @@
             </div>
             <!-- Megamenu end     -->
             <!-- Languages dropdown    -->
-            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
-              <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="English" class="mr-2"><span>French  </span></a></div>
+            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="admincss/img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
+              <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="admincss/img/flags/16/FR.png" alt="English" class="mr-2"><span>French  </span></a></div>
             </div>
             <!-- Log out               -->
-            <div class="list-inline-item logout">                   <a id="logout" href="login.html" class="nav-link">Logout <i class="icon-logout"></i></a></div>
+            <div class="list-inline-item logout">                  
+           <!-- this form i have remove it from the navigation.blade.php inside the layout folder -->
+            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                <p>
+                                 {{ __('Log Out') }}
+                                </p>
+                            </x-dropdown-link>
+                        </form>
+
+                </div>
           </div>
         </div>
       </nav>
