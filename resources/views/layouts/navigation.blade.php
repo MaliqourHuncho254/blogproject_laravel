@@ -28,7 +28,7 @@
                         <x-dropdown-link :href="route('profile.edit')">
                            <p style="color: black!important;"> 
                            {{ __('Profile') }}
-                        </p>
+                         </p>
                         </x-dropdown-link>
 
                         <!-- Authentication -->
