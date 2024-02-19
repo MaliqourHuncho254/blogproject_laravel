@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head> 
+    <style>
+      body {
+        background-color: black;
+      }
+    </style>
     <!-- meta tags section -->
    @include('admin.css');
   </head>
@@ -19,3 +24,4 @@
        <!-- footer section ends -->
   </body>
 </html>
+
