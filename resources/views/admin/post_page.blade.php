@@ -36,6 +36,14 @@
         <!-- Sidebar Navigation end-->
         <!-- section start -->
         <div class="page-content">
+
+            @if(session()->has('success'))
+            <div>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                {{session()->get('success')}}
+            </div>
+            @endif
+
             <h1 class="post_title">Add Post</h1>
             <!-- This is where we are going to start from -->
             <div>
