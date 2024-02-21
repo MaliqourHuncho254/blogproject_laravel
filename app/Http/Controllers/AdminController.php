@@ -69,8 +69,9 @@ class AdminController extends Controller
 //this is for show_post which is located in the admin page
 public function show_post()
 {
+    $post =     post::all();
     // Get all the posts from the database
-    return view('admin.show_post');
+    return view('admin.show_post', compact('post'));
 }
 
 }
