@@ -25,6 +25,17 @@
             display: inline-block;
             width: 200px;
         }
+
+        .alert {
+            color: white;
+            background-color: green;
+            border-color: green;
+        }
+
+        .close {
+            color: white;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -36,11 +47,12 @@
         <!-- Sidebar Navigation end-->
         <!-- section start -->
         <div class="page-content">
-
             @if(session()->has('success'))
-            <div>
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                {{session()->get('success')}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session()->get('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             @endif
 

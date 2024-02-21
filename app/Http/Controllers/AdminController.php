@@ -66,5 +66,11 @@ class AdminController extends Controller
     // Redirect back after adding the post
     return redirect()->back()->with('success', 'Post added successfully!');
 }
+//this is for show_post which is located in the admin page
+public function show_post()
+{
+    // Get all the posts from the database
+    return view('admin.show_post');
+}
 
 }
