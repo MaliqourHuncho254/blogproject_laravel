@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head> 
+    <!-- sweetalrt cdn link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- meta tags section -->
    @include('admin.css');
 <!-- this is for my styling just because once you remove this the background color will be white -->
@@ -96,7 +98,7 @@
 
                     <!-- sixth delete button -->
                     <td>
-                        <a href="{{url('delete_post',$post->id )}}" class="btn btn-danger" onclick="return confirm('Are you sure to Delete This?')">Delete</a>
+                        <a href="{{url('delete_post',$post->id )}}" class="btn btn-danger" onclick="confirmation(event)">Delete</a>
                     </td>
                 </tr>
                 @endforeach
@@ -106,6 +108,26 @@
        <!-- footer section stert -->
        @include('admin.footer');
        <!-- footer section ends -->
+       <script type="text/javascript">
+    function confirmation(ev) {
+        ev.preventDefault();
+
+        var urlToRedirect = ev.currentTarget.getAttribute('href');
+
+        swal({
+            title: "Are you Sure to delete this",
+            text: "You won't be able to revert this delete",
+            icon: "warning", // Change "Warning" to "warning"
+            button: true,
+            dangerMode: true,
+        }).then((willCancel) => {
+            if (willCancel) {
+                window.location.href = urlToRedirect;
+            }
+        });
+    }
+</script>
+
   </body>
 </html>
 
