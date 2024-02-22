@@ -73,5 +73,14 @@ public function show_post()
     // Get all the posts from the database
     return view('admin.show_post', compact('post'));
 }
+// this is for delete_post
+public function delete_post($id)
+{
+    $post = post::find($id);
+
+    $post -> delete();
+
+    return redirect()->back()->with('success', 'Post deleted successfully!');
+}
 
 }

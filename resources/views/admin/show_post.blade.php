@@ -46,6 +46,15 @@
 
         <!-- this is for   the show page-->
         <div class="page-content">
+            <!-- this is for delete message -->
+            @if(session()->has('success'))
+            <!-- this is for our div -->
+            <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            {{ session()->get('success') }}
+            </div>
+            @endif
+
             <h1 class="title_deg">All Post</h1>
 
             <table class="table_deg">
@@ -62,6 +71,10 @@
                     <th>UserType</th>
                     <!-- sixth -->
                     <th>Image</th>
+                    <!--delete  -->
+
+                    <th>Delete</th>
+
                 </tr>
                 @foreach ($post as $post)
                 <!-- the second tr-->
@@ -79,6 +92,11 @@
                     <!-- fifth -->
                     <td>
                         <img class="img_deg" src="postimage/{{$post->image}}" >
+                    </td>
+
+                    <!-- sixth delete button -->
+                    <td>
+                        <a href="{{url('delete_post',$post->id )}}" class="btn btn-danger" onclick="return confirm('Are you sure to Delete This?')">Delete</a>
                     </td>
                 </tr>
                 @endforeach
