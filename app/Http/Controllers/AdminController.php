@@ -83,4 +83,34 @@ public function delete_post($id)
     return redirect()->back()->with('success', 'Post deleted successfully!');
 }
 
+public function edit_page($id)
+{
+    $post = Post::find($id);
+
+    return view ('admin.edit_page', compact('post'));
+}
+
+public function update_post(Request $request, $id)
+{
+    $data = post::find($id);
+    //Title
+    $data->title= $request->title;
+    //Description 
+    $data->description =$request->description; 
+    //image
+    $image= $request->image;
+    if ($image)
+    {
+        $imagename=time().'.'.$image->getClientOriginalExtension();
+
+        $request->image->move('postimage', $imagename);
+
+        $data->image = $imagename;
+    }
+    //Save  image if it exists
+    $data->save();
+    //return
+    return redirect()->back()->with('success', 'Post Updated Successfully');
+}
+
 }

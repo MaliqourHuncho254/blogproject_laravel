@@ -77,6 +77,9 @@
 
                     <th>Delete</th>
 
+                    <!-- Edit -->
+
+                    <th>Edit</th>
                 </tr>
                 @foreach ($post as $post)
                 <!-- the second tr-->
@@ -99,6 +102,10 @@
                     <!-- sixth delete button -->
                     <td>
                         <a href="{{url('delete_post',$post->id )}}" class="btn btn-danger" onclick="confirmation(event)">Delete</a>
+                    </td>
+                    <!-- Edit Button Creation -->
+                    <td>
+                        <a href="{{url('edit_page', $post->id)}}" class="btn btn-success">Edit </a>
                     </td>
                 </tr>
                 @endforeach
