@@ -26,7 +26,7 @@ Route::get('/home',[HomeController::class, 'index'])->middleware('auth')->name('
 
 // Creating the Post function 
 // This was used for the admin side to call the post.blade.php file inside the view folder
-// route::get('post', [HomeController::class,'post'])->middleware(['auth', 'admin']);
+// Route::get('post', [HomeController::class,'post'])->middleware(['auth', 'admin']);
 
 // The below route, when commented and run dashboard in my Laravel application, shows the 404 error
 
@@ -41,21 +41,16 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-//this first is for post_page
+
+// This route is for post_page
 Route::get('/post_page', [AdminController::class, 'post_page']);
-//this second one is for add_post 
+// This route is for add_post 
 Route::post('/add_post', [AdminController::class, 'add_post']);
-//while the third one is for show_post
+// This route is for show_post
 Route::get('/show_post', [AdminController::class, 'show_post']);
-//delete page
+// This route is for delete_page
 Route::get('/delete_post/{id}', [AdminController::class, 'delete_post']);
-//Edit_page
+// This route is for edit_page
 Route::get('/edit_page/{id}', [AdminController::class, 'edit_page']);
-//Update post
+// This route is for updating a post
 Route::post('/update_post/{id}', [AdminController::class, 'update_post']);
-
-
-
-
-
-
